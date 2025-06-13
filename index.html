@@ -182,7 +182,7 @@
             });
         });
 
-        // Update active navigation link on scroll
+        // Update active navigation link on scroll - FIXED
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-link');
@@ -191,7 +191,8 @@
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
+                // FIXED: Changed scrollY to window.scrollY
+                if (window.scrollY >= (sectionTop - 200)) {
                     current = section.getAttribute('id');
                 }
             });
